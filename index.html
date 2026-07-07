@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANGROS | Estampado DTF, Sublimación y Vinil Textil</title>
+  <meta name="description" content="ANGROS convierte tu idea en una prenda real con estampado DTF, sublimación y vinil textil. Playeras, uniformes, gorras y rótulos personalizados con colores vibrantes y atención directa por WhatsApp." />
+  <meta name="keywords" content="estampado DTF, sublimación de playeras, vinil textil, playeras personalizadas, estampado de camisas, rótulos publicitarios, estampado por mayoreo, personalización textil, ANGROS" />
+  <meta name="robots" content="index, follow" />
+  <!-- PENDIENTE: favicon temporal (foto real del cliente). Sustituir por logo/monograma vectorial cuando el cliente lo proporcione. -->
+  <link rel="icon" type="image/jpeg" href="img/angros-trabajo-angel-dorado.jpeg" />
+  <meta property="og:title" content="ANGROS | Estampado DTF, Sublimación y Vinil Textil" />
+  <meta property="og:description" content="Tu diseño, convertido en una prenda que se nota, dura y es completamente tuya. Cotiza tu estampado por WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/angros-trabajo-angel-dorado.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       PENDIENTE DE INFORMACIÓN REAL DEL CLIENTE
+       - Número de WhatsApp: se usó 52 123 456 7890 como marcador de
+         posición en todos los botones/enlaces "wa.me". Reemplazar por
+         el número real antes de publicar.
+       - Redes sociales (Facebook/Instagram): enlaces con href="#"
+         pendientes de la URL real.
+       - Ciudad / zona de entrega, tiempos de entrega y testimonios:
+         contenido de relleno, listo para reemplazarse con info real.
+       - Logo: no se recibió un logo vectorial, se usa un wordmark en
+         texto ("ANGROS") y una foto de producto como favicon temporal.
+  ============================================================ -->
+
+  <!-- ============================================================
+       LOADER
+  ============================================================ -->
+  <div id="siteLoader" class="site-loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-rings">
+        <div class="loader-ring ring-1"></div>
+        <div class="loader-ring ring-2"></div>
+        <div class="loader-ring ring-3"></div>
+        <div class="loader-eye-wrap">
+          <span class="loader-monogram">A</span>
+        </div>
+      </div>
+      <div class="loader-progress-wrap"><div class="loader-progress-bar" id="loaderBar"></div></div>
+      <div class="loader-brand"><span class="loader-brand-text">ANGROS</span></div>
+      <p class="loader-tagline">Estampado DTF · Sublimación · Vinil</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header id="navbar" class="navbar">
+    <div class="navbar-inner">
+      <a href="#inicio" class="logo-wrap">
+        <span class="logo-text">ANGROS</span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="#inicio"    class="nav-link">Inicio</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#galeria"   class="nav-link">Galería</a>
+        <a href="#aprende"   class="nav-link">Guía</a>
+        <a href="#empresas"  class="nav-link">Mayoreo</a>
+        <a href="#sobre-mi"  class="nav-link">Nuestra Historia</a>
+        <a href="#contacto"  class="nav-link">Contacto</a>
+      </nav>
+      <div class="nav-right">
+        <a href="#contacto" class="btn-nav">Cotizar Ahora</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <nav class="mobile-nav">
+        <a href="#inicio"    class="nav-link-mobile" onclick="closeMobileMenu()">Inicio</a>
+        <a href="#servicios" class="nav-link-mobile" onclick="closeMobileMenu()">Servicios</a>
+        <a href="#galeria"   class="nav-link-mobile" onclick="closeMobileMenu()">Galería</a>
+        <a href="#aprende"   class="nav-link-mobile" onclick="closeMobileMenu()">Guía</a>
+        <a href="#empresas"  class="nav-link-mobile" onclick="closeMobileMenu()">Mayoreo</a>
+        <a href="#sobre-mi"  class="nav-link-mobile" onclick="closeMobileMenu()">Nuestra Historia</a>
+        <a href="#contacto"  class="nav-link-mobile" onclick="closeMobileMenu()">Contacto</a>
+        <a href="#contacto" class="btn-nav mt-mobile" onclick="closeMobileMenu()">Cotizar Ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO — Centrado, degradado de marca, efectos atmosféricos
+    ============================================================ -->
+    <section id="inicio" class="hero-section">
+
+      <!-- Fondo con degradado de marca -->
+      <div class="hero-bg-img" aria-hidden="true"></div>
+
+      <!-- Canvas principal: partículas doradas + puntos de colores de marca -->
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
+      <!-- Canvas secundario: puntos de colores flotantes -->
+      <canvas id="dotsCanvas" class="hero-canvas" style="z-index:2;opacity:0.85;"></canvas>
+
+      <!-- Capas atmosféricas -->
+      <div class="atmo-layers" aria-hidden="true">
+        <div class="atmo-fog fog-1"></div>
+        <div class="atmo-fog fog-2"></div>
+        <div class="atmo-fog fog-3"></div>
+        <div class="atmo-vignette"></div>
+        <div class="atmo-ray ray-1"></div>
+        <div class="atmo-ray ray-2"></div>
+        <div class="atmo-ray ray-3"></div>
+        <div class="atmo-dust dust-1">✦</div>
+        <div class="atmo-dust dust-2">✦</div>
+        <div class="atmo-dust dust-3">◆</div>
+        <div class="atmo-dust dust-4">✦</div>
+      </div>
+
+      <!-- Contenido centrado -->
+      <div class="hero-center" id="heroCenter">
+
+        <!-- Línea acento + badge -->
+        <div class="hero-accent-line hero-el" data-delay="0" id="heroBadge">
+          <span class="hero-accent-bar"></span>
+          <div class="hero-badge" style="margin-bottom:0; opacity:1; transform:none;">
+            <span class="badge-dot"></span>
+            <span class="badge-shine"></span>
+            Diseños 100% Personalizados
+          </div>
+        </div>
+
+        <!-- Título -->
+        <h1 class="hero-title hero-el" data-delay="1" id="heroTitle">
+          Estampamos tu idea con colores que sí resaltan,
+          <em class="hero-em"> y que aguantan lavada tras lavada.</em>
+        </h1>
+
+        <!-- Divider -->
+        <div class="hero-divider hero-el" data-delay="2" id="heroDivider"></div>
+
+        <!-- Subtítulo -->
+        <p class="hero-sub hero-el" data-delay="3" id="heroSub">
+          Especialistas en DTF, sublimación y vinil textil para playeras, uniformes y rótulos.
+          <strong>Tú traes la idea, nosotros la convertimos en prenda.</strong>
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas hero-el" id="heroCtas" data-delay="4">
+          <a href="#contacto" class="btn-primary btn-mag">
+            <span>Solicitar Cotización</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span class="btn-shine-fx"></span>
+          </a>
+          <a href="#servicios" class="btn-ghost btn-mag">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+            <span>Ver Nuestros Servicios</span>
+          </a>
+        </div>
+
+        <!-- Trust pills -->
+        <div class="hero-trust hero-el" id="heroTrust" data-delay="5">
+          <div class="trust-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="2"><path d="M12 2L9.5 8.5H3L8 13L5.8 20L12 16L18.2 20L16 13L21 8.5H14.5L12 2Z"/></svg>Diseños 100% Personalizados</div>
+          <div class="trust-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Colores Vibrantes y Duraderos</div>
+          <div class="trust-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>DTF · Sublimación · Vinil</div>
+          <div class="trust-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Atención Directa por WhatsApp</div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="hero-stats hero-el" id="heroStats" data-delay="6">
+          <div class="hstat"><span class="hstat-num" data-count-to="3">0</span><span class="hstat-lbl">Técnicas Disponibles</span></div>
+          <div class="hstat-sep"></div>
+          <div class="hstat"><span class="hstat-num" data-count-to="100" data-suffix="%">0%</span><span class="hstat-lbl">Personalización Total</span></div>
+          <div class="hstat-sep"></div>
+          <div class="hstat"><span class="hstat-num" data-count-to="1" data-prefix="Desde ">Desde 0</span><span class="hstat-lbl">Pieza, Sin Pedido Mínimo</span></div>
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-cue" id="scrollCue">
+        <div class="sc-mouse"><div class="sc-wheel"></div></div>
+        <span>Explorar</span>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         SERVICIOS — 4 técnicas de estampado, cada una con una
+         muestra real de trabajo del cliente
+    ============================================================ -->
+    <div id="servicios">
+
+      <!-- ── SERVICIO 1: DTF ── imagen izquierda -->
+      <section class="product-section ps-chamana" data-product="1" id="dtf">
+        <div class="ps-container">
+          <div class="ps-image-col ps-img-left">
+            <div class="ps-img-wrap prod-reveal-img">
+              <div class="ps-img-glow glow-green"></div>
+              <img src="img/angros-trabajo-neon-verde.jpeg" alt="Playera negra con estampado DTF full color en verde neón y turquesa, trabajo realizado por ANGROS" class="ps-img" loading="lazy"/>
+              <div class="ps-img-frame"></div>
+            </div>
+          </div>
+          <div class="ps-info-col prod-reveal-text">
+            <div class="ps-eyebrow">
+              <span class="ps-number">01</span>
+              <span class="ps-line"></span>
+              <span class="ps-category">Impresión Directo a Film</span>
+            </div>
+            <h2 class="ps-name">DTF</h2>
+            <p class="ps-tagline">Full color, alta definición, en cualquier tela.</p>
+            <p class="ps-desc">
+              El DTF es la técnica más versátil que existe: estampa diseños a todo color, con detalles finos y degradados, sobre playeras de cualquier tono —incluyendo negro— sin perder brillo ni nitidez.
+            </p>
+            <ul class="ps-benefits">
+              <li><span class="ps-dot"></span>Full color y detalles de alta definición</li>
+              <li><span class="ps-dot"></span>Se adhiere a algodón, poliéster y mezclas</li>
+              <li><span class="ps-dot"></span>Colores vibrantes que no se agrietan ni se despegan</li>
+            </ul>
+            <div class="ps-cta-row">
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20cotizar%20un%20estampado%20en%20DTF%20con%20ANGROS" class="btn-primary btn-mag" target="_blank" rel="noopener noreferrer">
+                <span>Cotizar en DTF</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <span class="btn-shine-fx"></span>
+              </a>
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20el%20estampado%20DTF%20de%20ANGROS" target="_blank" rel="noopener noreferrer" class="ps-link">Ver más detalles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SERVICIO 2: SUBLIMACIÓN ── imagen derecha -->
+      <section class="product-section ps-santa ps-reverse" data-product="2" id="sublimacion">
+        <div class="ps-container">
+          <div class="ps-info-col prod-reveal-text">
+            <div class="ps-eyebrow">
+              <span class="ps-number">02</span>
+              <span class="ps-line"></span>
+              <span class="ps-category">Impresión Por Sublimación</span>
+            </div>
+            <h2 class="ps-name">Sublimación</h2>
+            <p class="ps-tagline">El color se convierte en parte de la tela.</p>
+            <p class="ps-desc">
+              La sublimación funde la tinta directo en las fibras de poliéster, logrando estampados suaves al tacto que no se agrietan y conservan su color lavada tras lavada. Ideal para playeras claras, uniformes deportivos y diseños de gran formato.
+            </p>
+            <ul class="ps-benefits">
+              <li><span class="ps-dot"></span>El estampado se integra a la tela, no se siente al tacto</li>
+              <li><span class="ps-dot"></span>Colores intensos de borde a borde, sin límite de tamaño</li>
+              <li><span class="ps-dot"></span>Perfecto para playeras deportivas y uniformes</li>
+            </ul>
+            <div class="ps-cta-row">
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20cotizar%20un%20estampado%20en%20Sublimaci%C3%B3n%20con%20ANGROS" class="btn-primary btn-mag" target="_blank" rel="noopener noreferrer">
+                <span>Cotizar en Sublimación</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <span class="btn-shine-fx"></span>
+              </a>
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20la%20sublimaci%C3%B3n%20de%20ANGROS" target="_blank" rel="noopener noreferrer" class="ps-link">Ver más detalles →</a>
+            </div>
+          </div>
+          <div class="ps-image-col ps-img-right">
+            <div class="ps-img-wrap prod-reveal-img">
+              <div class="ps-img-glow glow-blue"></div>
+              <img src="img/angros-trabajo-rosa-geometrico.jpeg" alt="Playera rosa con estampado de sublimación en patrón geométrico turquesa, trabajo realizado por ANGROS" class="ps-img" loading="lazy"/>
+              <div class="ps-img-frame"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SERVICIO 3: VINIL TEXTIL ── imagen izquierda -->
+      <section class="product-section ps-libertad" data-product="3" id="vinil">
+        <div class="ps-container">
+          <div class="ps-image-col ps-img-left">
+            <div class="ps-img-wrap prod-reveal-img">
+              <div class="ps-img-glow glow-teal"></div>
+              <img src="img/angros-trabajo-collage-tipografico.jpeg" alt="Playera negra con letras en vinil textil en cinco acabados de color distintos, trabajo realizado por ANGROS" class="ps-img" loading="lazy"/>
+              <div class="ps-img-frame"></div>
+            </div>
+          </div>
+          <div class="ps-info-col prod-reveal-text">
+            <div class="ps-eyebrow">
+              <span class="ps-number">03</span>
+              <span class="ps-line"></span>
+              <span class="ps-category">Vinil Textil (HTV)</span>
+            </div>
+            <h2 class="ps-name">Vinil Textil</h2>
+            <p class="ps-tagline">Nombres, números y logos con acabado limpio.</p>
+            <p class="ps-desc">
+              El vinil textil es la opción perfecta para números deportivos, nombres personalizados y logos con bordes definidos. Disponible en acabados mate, brillante, glitter y metálico para darle personalidad a cada prenda.
+            </p>
+            <ul class="ps-benefits">
+              <li><span class="ps-dot"></span>Bordes perfectamente definidos, ideal para tipografía y logos</li>
+              <li><span class="ps-dot"></span>Acabados mate, brillante, glitter y metálico</li>
+              <li><span class="ps-dot"></span>Excelente para playeras de equipos y uniformes numerados</li>
+            </ul>
+            <div class="ps-cta-row">
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20cotizar%20un%20estampado%20en%20Vinil%20Textil%20con%20ANGROS" class="btn-primary btn-mag" target="_blank" rel="noopener noreferrer">
+                <span>Cotizar en Vinil</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <span class="btn-shine-fx"></span>
+              </a>
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20el%20vinil%20textil%20de%20ANGROS" target="_blank" rel="noopener noreferrer" class="ps-link">Ver más detalles →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SERVICIO 4: RÓTULOS Y MÁS ── imagen derecha -->
+      <section class="product-section ps-amate ps-reverse" data-product="4" id="rotulos">
+        <div class="ps-container">
+          <div class="ps-info-col prod-reveal-text">
+            <div class="ps-eyebrow">
+              <span class="ps-number">04</span>
+              <span class="ps-line"></span>
+              <span class="ps-category">Rótulos y Personalización Textil</span>
+            </div>
+            <h2 class="ps-name">Rótulos y Más</h2>
+            <p class="ps-tagline">Si se puede personalizar, lo hacemos.</p>
+            <p class="ps-desc">
+              Además de playeras, hacemos rotulación en vinil para negocios, vehículos y vitrinas, además de estampados en gorras, sudaderas, bolsas y todo tipo de textil. Si tienes una idea, encontramos la técnica correcta para ella.
+            </p>
+            <ul class="ps-benefits">
+              <li><span class="ps-dot"></span>Rotulación de vinil para negocios y vehículos</li>
+              <li><span class="ps-dot"></span>Estampado en gorras, sudaderas, bolsas y más</li>
+              <li><span class="ps-dot"></span>Asesoría gratuita sobre la técnica ideal para tu proyecto</li>
+            </ul>
+            <div class="ps-cta-row">
+              <a href="https://wa.me/521234567890?text=Hola,%20tengo%20un%20proyecto%20de%20r%C3%B3tulos%20o%20textil%20personalizado%20y%20me%20gustar%C3%ADa%20cotizarlo%20con%20ANGROS" class="btn-primary btn-mag" target="_blank" rel="noopener noreferrer">
+                <span>Cotizar Mi Proyecto</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <span class="btn-shine-fx"></span>
+              </a>
+              <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20r%C3%B3tulos%20y%20personalizaci%C3%B3n%20textil%20de%20ANGROS" target="_blank" rel="noopener noreferrer" class="ps-link">Ver más detalles →</a>
+            </div>
+          </div>
+          <div class="ps-image-col ps-img-right">
+            <div class="ps-img-wrap prod-reveal-img">
+              <div class="ps-img-glow glow-red"></div>
+              <img src="img/angros-trabajo-arte-clasico.jpeg" alt="Playera negra con arte de línea fina en dorado rosado, ejemplo de personalización textil de ANGROS" class="ps-img" loading="lazy"/>
+              <div class="ps-img-frame"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /servicios -->
+
+    <!-- ===== CÓMO FUNCIONA ===== -->
+    <section class="ritual-section">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag reveal-up">Así De Fácil</div>
+          <h2 class="section-title reveal-up">Tu Prenda Personalizada En 4 Pasos</h2>
+          <p class="section-sub reveal-up">De tu idea a tu prenda terminada, sin complicaciones.</p>
+        </div>
+        <div class="ritual-steps">
+          <div class="ritual-step reveal-up" style="--i:0"><div class="rs-number">01</div><div class="rs-tag rtag-chamana">IDEA</div><h3 class="rs-title">Cuéntanos Tu Idea</h3><p class="rs-desc">Mándanos tu diseño, foto o boceto, o dinos qué tienes en mente y te ayudamos a darle forma.</p><div class="rs-arrow">→</div></div>
+          <div class="ritual-step reveal-up" style="--i:1"><div class="rs-number">02</div><div class="rs-tag rtag-santa">TÉCNICA</div><h3 class="rs-title">Elegimos La Técnica</h3><p class="rs-desc">Te recomendamos si DTF, sublimación o vinil es la mejor opción para tu prenda y tu diseño.</p><div class="rs-arrow">→</div></div>
+          <div class="ritual-step reveal-up" style="--i:2"><div class="rs-number">03</div><div class="rs-tag rtag-libertad">WHATSAPP</div><h3 class="rs-title">Confirma Por WhatsApp</h3><p class="rs-desc">Recibe tu cotización, aprueba el diseño final y confirma tu pedido, todo por chat.</p><div class="rs-arrow">→</div></div>
+          <div class="ritual-step reveal-up" style="--i:3"><div class="rs-number">04</div><div class="rs-tag rtag-amate">LISTO</div><h3 class="rs-title">Recibe Tu Pedido</h3><p class="rs-desc">Recoge tu prenda o recíbela lista para usar, con el acabado que viste en la cotización.</p><div class="rs-arrow rs-final">✦</div></div>
+        </div>
+        <div class="ritual-cta reveal-up">
+          <div class="ritual-cta-box">
+            <p class="rcta-text"><em class="gold-em">Tu próxima prenda personalizada,</em> está a un mensaje de distancia.</p>
+            <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20ANGROS" class="btn-primary btn-mag" target="_blank" rel="noopener noreferrer"><span>Cotizar por WhatsApp</span><span class="btn-shine-fx"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALERÍA DE TRABAJOS ===== -->
+    <section class="collection-section" id="galeria">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag reveal-up">Trabajo Real, Resultados Reales</div>
+          <h2 class="section-title reveal-up">Estampados Que Hemos Hecho</h2>
+          <p class="section-sub reveal-up">Cada pieza es una muestra de lo que podemos lograr con tu diseño.</p>
+        </div>
+        <div class="products-grid">
+          <article class="product-card pc-chamana reveal-up" style="--i:0">
+            <div class="pc-visual">
+              <div class="pc-glow pc-glow-green"></div>
+              <img src="img/angros-trabajo-angel-dorado.jpeg" alt="Playera negra con ilustración de ángel en línea fina y estampado dorado brillante, DTF full color por ANGROS" class="pc-product-img" loading="lazy"/>
+              <div class="pc-badge">Destacado</div>
+            </div>
+            <div class="pc-info"><h3 class="pc-name">Ángel Dorado</h3><p class="pc-purpose">DTF Full Color</p><p class="pc-desc">Ilustración de línea fina con acabado dorado brillante sobre playera negra.</p><a href="https://wa.me/521234567890?text=Hola,%20vi%20el%20dise%C3%B1o%20Angel%20Dorado%20en%20su%20p%C3%A1gina%20y%20me%20interesa%20algo%20similar" target="_blank" rel="noopener noreferrer" class="btn-product">Cotizar algo similar →</a></div>
+          </article>
+
+          <article class="product-card pc-santa reveal-up" style="--i:1">
+            <div class="pc-visual">
+              <div class="pc-glow pc-glow-blue"></div>
+              <img src="img/angros-trabajo-neon-verde.jpeg" alt="Playera negra con diseño surrealista y letras en verde neón, DTF full color por ANGROS" class="pc-product-img" loading="lazy"/>
+            </div>
+            <div class="pc-info"><h3 class="pc-name">Neón Verde</h3><p class="pc-purpose">DTF Full Color</p><p class="pc-desc">Diseño surrealista con degradado de fondo y letras en verde neón brillante.</p><a href="https://wa.me/521234567890?text=Hola,%20vi%20el%20dise%C3%B1o%20Ne%C3%B3n%20Verde%20en%20su%20p%C3%A1gina%20y%20me%20interesa%20algo%20similar" target="_blank" rel="noopener noreferrer" class="btn-product">Cotizar algo similar →</a></div>
+          </article>
+
+          <article class="product-card pc-libertad reveal-up" style="--i:2">
+            <div class="pc-visual">
+              <div class="pc-glow pc-glow-teal"></div>
+              <img src="img/angros-trabajo-rosa-geometrico.jpeg" alt="Playera rosa con patrón geométrico en tonos turquesa, sublimación por ANGROS" class="pc-product-img" loading="lazy"/>
+            </div>
+            <div class="pc-info"><h3 class="pc-name">Fragmento Geométrico</h3><p class="pc-purpose">Sublimación</p><p class="pc-desc">Patrón geométrico en tonos turquesa sobre playera rosa pastel.</p><a href="https://wa.me/521234567890?text=Hola,%20vi%20el%20dise%C3%B1o%20Fragmento%20Geom%C3%A9trico%20en%20su%20p%C3%A1gina%20y%20me%20interesa%20algo%20similar" target="_blank" rel="noopener noreferrer" class="btn-product">Cotizar algo similar →</a></div>
+          </article>
+
+          <article class="product-card pc-amate reveal-up" style="--i:3">
+            <div class="pc-visual">
+              <div class="pc-glow pc-glow-red"></div>
+              <img src="img/angros-trabajo-collage-tipografico.jpeg" alt="Playera negra con tipografía ANGROS repetida en cinco acabados de vinil de color distintos" class="pc-product-img" loading="lazy"/>
+            </div>
+            <div class="pc-info"><h3 class="pc-name">Multicolor</h3><p class="pc-purpose">Vinil Textil</p><p class="pc-desc">Tipografía repetida en cinco acabados de vinil distintos sobre una sola prenda.</p><a href="https://wa.me/521234567890?text=Hola,%20vi%20el%20dise%C3%B1o%20Multicolor%20en%20su%20p%C3%A1gina%20y%20me%20interesa%20algo%20similar" target="_blank" rel="noopener noreferrer" class="btn-product">Cotizar algo similar →</a></div>
+          </article>
+
+          <article class="product-card pc-chamana reveal-up" style="--i:4">
+            <div class="pc-visual">
+              <div class="pc-glow pc-glow-green"></div>
+              <img src="img/angros-trabajo-arte-clasico.jpeg" alt="Playera negra con arte clásico de línea fina y firma en script dorado rosado, DTF por ANGROS" class="pc-product-img" loading="lazy"/>
+            </div>
+            <div class="pc-info"><h3 class="pc-name">Clásico Renacentista</h3><p class="pc-purpose">DTF Full Color</p><p class="pc-desc">Arte detallado inspirado en pintura clásica, con firma en script dorado rosado.</p><a href="https://wa.me/521234567890?text=Hola,%20vi%20el%20dise%C3%B1o%20Cl%C3%A1sico%20Renacentista%20en%20su%20p%C3%A1gina%20y%20me%20interesa%20algo%20similar" target="_blank" rel="noopener noreferrer" class="btn-product">Cotizar algo similar →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ¿TE IDENTIFICAS? ===== -->
+    <section class="identify-section" id="para-ti">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag reveal-up">¿Para Quién Es ANGROS?</div>
+          <h2 class="section-title reveal-up">¿Te Identificas Con Esto?</h2>
+          <p class="section-sub reveal-up">Si buscas personalizar algo, probablemente podemos ayudarte.</p>
+        </div>
+        <div class="identify-grid">
+          <div class="identify-card reveal-up" style="--i:0"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><p>Quieres una playera que nadie más tenga</p></div>
+          <div class="identify-card reveal-up" style="--i:1"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="14" height="10" rx="2"/><path d="M21 10v4"/></svg></div><p>Tienes un negocio y necesitas uniformes o playeras con tu logo</p></div>
+          <div class="identify-card reveal-up" style="--i:2"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><p>Organizas un evento, boda o generación y buscas playeras conmemorativas</p></div>
+          <div class="identify-card reveal-up" style="--i:3"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15h8M9 9h.01M15 9h.01"/></svg></div><p>Diriges un equipo deportivo y necesitas playeras numeradas</p></div>
+          <div class="identify-card reveal-up" style="--i:4"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><p>Eres emprendedor y quieres lanzar tu propia marca de ropa</p></div>
+          <div class="identify-card reveal-up" style="--i:5"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></div><p>Buscas rotular tu negocio, local o vehículo</p></div>
+          <div class="identify-card reveal-up" style="--i:6"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><p>Quieres un regalo personalizado que de verdad sorprenda</p></div>
+          <div class="identify-card reveal-up" style="--i:7"><div class="id-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><p>Tienes una idea y no sabes qué técnica de estampado usar</p></div>
+        </div>
+        <div class="identify-cta reveal-up"><p class="identify-cta-text">Si tienes una idea, la convertimos en estampado.</p><a href="#servicios" class="btn-primary btn-mag"><span>Ver Nuestros Servicios</span><span class="btn-shine-fx"></span></a></div>
+      </div>
+    </section>
+
+    <!-- ===== GUÍA DEL COMPRADOR ===== -->
+    <section class="learn-section" id="aprende">
+      <div class="section-container">
+        <div class="learn-grid">
+          <div class="learn-text reveal-left">
+            <div class="section-tag">Todo Lo Que Necesitas Saber</div>
+            <h2 class="section-title">Antes De <em>Pedir Tu Estampado</em></h2>
+            <p class="body-text">En ANGROS trabajamos directo por WhatsApp: nos compartes tu idea, te asesoramos sobre la técnica ideal y confirmamos todo por chat. Sin formularios complicados, sin letras chiquitas.</p>
+            <p class="body-text">Para que tu prenda quede exactamente como la imaginaste, aquí tienes información útil antes de hacer tu pedido.</p>
+          </div>
+          <div class="learn-cards reveal-right">
+            <div class="learn-card"><div class="lc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23,7 16,12 23,17"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><div class="lc-body"><h4>¿Qué Técnica Elegir?</h4><p>DTF, sublimación o vinil: te explicamos cuál conviene según tu diseño y tu prenda.</p><a href="https://wa.me/521234567890?text=Hola,%20no%20s%C3%A9%20qu%C3%A9%20t%C3%A9cnica%20de%20estampado%20me%20conviene,%20%C2%BFme%20pueden%20asesorar%3F" target="_blank" rel="noopener noreferrer" class="lc-link">Preguntar por WhatsApp →</a></div></div>
+            <div class="learn-card"><div class="lc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="lc-body"><h4>Cuidados De Tu Prenda</h4><p>Tips para lavar tu playera estampada y que el diseño luzca como nuevo por más tiempo.</p><a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20sobre%20el%20cuidado%20de%20las%20prendas%20estampadas%20por%20ANGROS" target="_blank" rel="noopener noreferrer" class="lc-link">Ver Cuidados →</a></div></div>
+            <div class="learn-card"><div class="lc-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="lc-body"><h4>Síguenos</h4><p>Conoce más de nuestro trabajo y entérate de promociones y nuevos diseños.</p><a href="#" class="lc-link">Síguenos →</a></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAYOREO Y PERSONALIZADOS ===== -->
+    <section class="business-section" id="empresas">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag reveal-up">Soluciones Para Todos</div>
+          <h2 class="section-title reveal-up">Mayoreo y Pedidos Especiales</h2>
+          <p class="section-sub reveal-up">Estampado por volumen y proyectos personalizados para tu marca, evento o equipo.</p>
+        </div>
+        <div class="business-grid">
+          <div class="biz-card reveal-up" style="--i:0"><div class="biz-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h3>Emprendedores de Moda</h3><p>Lanza tu marca de ropa con estampados de calidad y precios por volumen.</p></div>
+          <div class="biz-card reveal-up" style="--i:1"><div class="biz-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div><h3>Creadores de Contenido</h3><p>Estampa tu marca personal en playeras y merch para tu audiencia.</p></div>
+          <div class="biz-card reveal-up" style="--i:2"><div class="biz-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h3>Regalos Personalizados</h3><p>Playeras y prendas a la medida para cumpleaños, aniversarios y ocasiones especiales.</p></div>
+          <div class="biz-card reveal-up" style="--i:3"><div class="biz-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Negocios y Marcas</h3><p>Uniformes, playeras corporativas y rotulación con la calidad ANGROS.</p></div>
+          <div class="biz-card reveal-up" style="--i:4"><div class="biz-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Equipos y Grupos</h3><p>Playeras numeradas y conmemorativas para tu equipo, generación o grupo de amigos.</p></div>
+          <div class="biz-card reveal-up" style="--i:5"><div class="biz-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="14" height="10" rx="2"/><path d="M21 10v4"/></svg></div><h3>Eventos y Fiestas</h3><p>Piezas exclusivas para bodas, XV años, despedidas y eventos especiales.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NUESTRA HISTORIA ===== -->
+    <section class="founder-section" id="sobre-mi">
+      <div class="section-container">
+        <div class="founder-grid">
+          <div class="founder-text reveal-up founder-text-centered">
+            <div class="section-tag">Nuestra Historia</div>
+            <h2 class="section-title">Apenas Estamos Empezando, <em>Y Eso Es Nuestra Ventaja</em></h2>
+            <p class="body-text">ANGROS nace de la pasión por el estampado: DTF, sublimación y vinil textil trabajados con el mismo cuidado que le pondrías a tu propia idea. Estamos construyendo esta marca pieza por pieza, prenda por prenda.</p>
+            <p class="body-text">Ser un negocio nuevo significa que cada cliente recibe atención directa, sin intermediarios: hablas con quien realmente estampa tu pedido, y eso se nota en el resultado final.</p>
+            <a href="#" class="btn-outline">Síguenos en Redes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <!-- PENDIENTE: testimonios de relleno. Reemplazar por reseñas reales de clientes en cuanto el cliente las proporcione. -->
+    <section class="testimonials-section">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag reveal-up">Lo Que Dicen De Nosotros</div>
+          <h2 class="section-title reveal-up">Lo Que Dicen Nuestros Clientes</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testi-card reveal-up" style="--i:0"><div class="testi-quote">"</div><p class="testi-text">El estampado quedó exactamente como en la foto que mandé. Se nota que le pusieron atención a los detalles.</p><div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Karla M.</div><div class="testi-role">Cliente ANGROS</div></div></div><div class="testi-stars">★★★★★</div></div>
+          <div class="testi-card reveal-up" style="--i:1"><div class="testi-quote">"</div><p class="testi-text">Pedí playeras para todo mi equipo y llegaron a tiempo, con los números perfectos.</p><div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jonathan P.</div><div class="testi-role">Cliente ANGROS</div></div></div><div class="testi-stars">★★★★★</div></div>
+          <div class="testi-card reveal-up" style="--i:2"><div class="testi-quote">"</div><p class="testi-text">Muy buena atención por WhatsApp, me ayudaron a elegir la técnica correcta para mi diseño.</p><div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sofía R.</div><div class="testi-role">Cliente ANGROS</div></div></div><div class="testi-stars">★★★★★</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ¿NO SABES QUÉ TÉCNICA USAR? ===== -->
+    <section class="diagnosis-section">
+      <div class="section-container">
+        <div class="diagnosis-box reveal-up">
+          <div class="diag-text">
+            <div class="section-tag">¿No Sabes Por Dónde Empezar?</div>
+            <h2 class="diag-title">¿Aún no sabes <em>qué técnica es para ti?</em></h2>
+            <p class="body-text">Cuéntanos tu idea y te ayudamos a elegir entre DTF, sublimación o vinil según tu diseño, tu prenda y tu presupuesto.</p>
+            <a href="https://wa.me/521234567890?text=Hola,%20tengo%20una%20idea%20pero%20no%20s%C3%A9%20qu%C3%A9%20t%C3%A9cnica%20de%20estampado%20me%20conviene,%20%C2%BFme%20pueden%20ayudar%3F" class="btn-primary btn-mag" target="_blank" rel="noopener noreferrer"><span>Hablar Con Un Asesor</span><span class="btn-shine-fx"></span></a>
+          </div>
+          <div class="diag-visual"><div class="diag-orb dob1"></div><div class="diag-orb dob2"></div><div class="diag-icon"><svg width="90" height="90" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="0.8"><path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.6"/></svg></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="contact-section" id="contacto">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-tag reveal-up">Hablemos</div>
+          <h2 class="section-title reveal-up">¿Listo Para <em>Personalizar Tu Prenda?</em></h2>
+          <p class="section-sub reveal-up">Escríbenos por WhatsApp y cotizamos tu pedido al momento.</p>
+        </div>
+
+        <div class="contact-wa-layout">
+
+          <!-- Panel izquierdo: solo WhatsApp -->
+          <div class="wa-panel reveal-left">
+            <div class="wa-panel-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </div>
+            <h3 class="wa-panel-title">Escríbenos por WhatsApp</h3>
+            <p class="wa-panel-desc">Resolvemos tus dudas, te asesoramos sobre la técnica ideal para tu diseño y te acompañamos durante todo el proceso de tu pedido.</p>
+
+            <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20ANGROS" class="btn-wa-big" target="_blank" rel="noopener noreferrer">
+              <div class="btn-wa-big-pulse"></div>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              <div class="btn-wa-big-text">
+                <span class="btn-wa-big-label">Chatear ahora</span>
+                <span class="btn-wa-big-num">123 456 7890</span>
+              </div>
+            </a>
+
+            <div class="wa-panel-features">
+              <div class="wa-feat"><span class="wa-feat-dot"></span>Respuesta rápida</div>
+              <div class="wa-feat"><span class="wa-feat-dot"></span>Asesoría sin costo</div>
+              <div class="wa-feat"><span class="wa-feat-dot"></span>Cotización al momento</div>
+            </div>
+          </div>
+
+          <!-- Panel derecho: formulario que envía a WA -->
+          <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+            <h3 class="form-title">Cuéntanos Tu Idea</h3>
+            <p class="form-subtitle">Completa el formulario y te enviamos directamente a WhatsApp con tu información.</p>
+            <div class="form-group">
+              <label class="form-label">Nombre Completo *</label>
+              <input type="text" id="fNombre" class="form-input" placeholder="Tu nombre completo" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Teléfono (opcional)</label>
+              <input type="tel" id="fTelefono" class="form-input" placeholder="+52 xxx xxx xxxx" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">¿Qué te interesa?</label>
+              <select id="fInteres" class="form-input">
+                <option value="">Selecciona una opción</option>
+                <option>Estampado DTF</option>
+                <option>Sublimación</option>
+                <option>Vinil Textil</option>
+                <option>Rótulos para mi negocio</option>
+                <option>Pedido por mayoreo</option>
+                <option>Otro / No estoy seguro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mensaje</label>
+              <textarea id="fMensaje" class="form-input form-textarea" placeholder="Cuéntanos tu idea, el tipo de prenda y la cantidad que necesitas..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-wa-submit btn-mag">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              <span>Solicitar Cotización por WhatsApp</span>
+              <span class="btn-shine-fx"></span>
+            </button>
+            <p class="form-wa-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Al enviar, se abrirá WhatsApp con tu mensaje listo para enviar.
+            </p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+      <div class="section-container">
+        <div class="trust-bar-grid">
+          <div class="tb-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="1.5"><path d="M5 12h14M19 12l-7-7-7 7"/></svg><span>DTF · Sublimación · Vinil</span></div>
+          <div class="tb-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="1.5"><path d="M12 2L9.5 8.5H3L8 13L5.8 20L12 16L18.2 20L16 13L21 8.5H14.5L12 2Z"/></svg><span>Colores Que No Se Despintan</span></div>
+          <div class="tb-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>Estampado 100% Personalizado</span></div>
+          <div class="tb-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9D5CE0" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Cotización Directa por WhatsApp</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="section-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#inicio" class="logo-wrap">
+            <span class="logo-text">ANGROS</span>
+          </a>
+          <p class="footer-tagline">Convertimos tu idea en una prenda que se nota, dura y es completamente tuya.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20ANGROS" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.05 2A9.9 9.9 0 0 0 2.15 11.9a9.8 9.8 0 0 0 1.32 4.95L2 22l5.3-1.39a9.9 9.9 0 0 0 4.75 1.2h.005a9.9 9.9 0 0 0 9.9-9.9A9.9 9.9 0 0 0 12.05 2z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4 class="footer-heading">Navegación</h4><ul class="footer-links"><li><a href="#inicio">Inicio</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#galeria">Galería</a></li><li><a href="#aprende">Guía</a></li><li><a href="#empresas">Mayoreo</a></li><li><a href="#sobre-mi">Nuestra Historia</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading">Servicios</h4><ul class="footer-links"><li><a href="#dtf">DTF</a></li><li><a href="#sublimacion">Sublimación</a></li><li><a href="#vinil">Vinil Textil</a></li><li><a href="#rotulos">Rótulos y Más</a></li></ul></div>
+        <div class="footer-col"><h4 class="footer-heading">Contacto</h4><ul class="footer-links"><li><a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20ANGROS" target="_blank" rel="noopener noreferrer">WhatsApp: 123 456 7890</a></li><li><span>Pedidos locales y por encargo</span></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 ANGROS. Todos los derechos reservados.</p><p>DTF · Sublimación · Vinil ✦</p></div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20saber%20m%C3%A1s%20sobre%20ANGROS" class="wa-float" id="waFloat" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <div class="wa-pulse"></div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    <span class="wa-tooltip">¡Escríbenos!</span>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>
