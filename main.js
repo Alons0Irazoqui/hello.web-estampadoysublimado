@@ -678,7 +678,7 @@ function handleFormSubmit(e) {
 
   /* Pequeña pausa visual, luego abrir WA */
   setTimeout(() => {
-    const waURL = `https://wa.me/521234567890?text=${encodeURIComponent(waText)}`;
+    const waURL = `https://wa.me/528145757823?text=${encodeURIComponent(waText)}`;
     window.open(waURL, '_blank', 'noopener,noreferrer');
 
     /* Confirmación visual */
